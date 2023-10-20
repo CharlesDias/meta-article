@@ -1,3 +1,7 @@
+# Copyright (C) 2023 Charles Dias
+#
+# SPDX-License-Identifier: MIT
+
 do_configure:append() {
     # Remove existing fdtfile, if there is one
     sed -i '/"fdtfile=.*\\0" \\/d' ${S}/include/configs/colibri-imx6ull.h
