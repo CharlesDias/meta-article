@@ -16,8 +16,19 @@
             "fsl,imx6ull";
 };
 
-// Enable the parallel RGB interface on the Colibri iMX6ULL.
+// Resistive AD7879 touch controller for the 7" display orderable
+// at Toradex.
 
+&ad7879_ts {
+    status = "okay";
+};
+ 
+&i2c2 {
+    /* Was disabled because ad7879 is a single I2C slave */
+    status = "okay";
+};
+
+// Enable the parallel RGB interface on the Colibri iMX6ULL.
 &backlight {
     status = "okay";
 };
