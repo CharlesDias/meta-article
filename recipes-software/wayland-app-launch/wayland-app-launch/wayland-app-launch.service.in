@@ -1,0 +1,18 @@
+[Unit]
+Description=Start a Wayland application
+After=weston.service
+After=run-touch-calibration-once.service
+Requires=weston.service
+
+[Service]
+Type=simple
+User=root
+PAMName=login
+Environment=WAYLAND_DISPLAY=/run/wayland-0
+Environment=@@application-environment@@
+ExecStart=@@wayland-application@@
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=graphical.target
