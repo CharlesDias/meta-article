@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Weston Touch Calibration on First Boot
+After=weston.service
+
+[Service]
+Type=oneshot
+User=root
+Environment=XDG_RUNTIME_DIR=/run/user/0
+Environment=WAYLAND_DISPLAY=/run/wayland-0
+ExecStart=/usr/bin/run-touch-calibration-once
+
+[Install]
+WantedBy=graphical.target
